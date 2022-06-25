@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["call_internal",""]],"struct":[["FediMintInterconnect",""]]});
+window.SIDEBAR_ITEMS = {"fn":[["call_internal",""]],"struct":[["MinimintInterconnect",""]]};

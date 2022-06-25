@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["api",""],["connect",""],["framed",""]],"trait":[["PeerConnections",""]]});
+window.SIDEBAR_ITEMS = {"mod":[["api",""],["connect",""],["framed",""],["peers",""],["queue",""]]};

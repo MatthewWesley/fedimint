@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `minimint/src/config.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>config.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../minimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `minimint/src/config.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>config.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../minimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
         </a><h2 class="location"></h2>
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../../minimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
@@ -166,78 +165,27 @@
 <span id="159">159</span>
 <span id="160">160</span>
 <span id="161">161</span>
-<span id="162">162</span>
-<span id="163">163</span>
-<span id="164">164</span>
-<span id="165">165</span>
-<span id="166">166</span>
-<span id="167">167</span>
-<span id="168">168</span>
-<span id="169">169</span>
-<span id="170">170</span>
-<span id="171">171</span>
-<span id="172">172</span>
-<span id="173">173</span>
-<span id="174">174</span>
-<span id="175">175</span>
-<span id="176">176</span>
-<span id="177">177</span>
-<span id="178">178</span>
-<span id="179">179</span>
-<span id="180">180</span>
-<span id="181">181</span>
-<span id="182">182</span>
-<span id="183">183</span>
-<span id="184">184</span>
-<span id="185">185</span>
-<span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
-<span id="190">190</span>
-<span id="191">191</span>
-<span id="192">192</span>
-<span id="193">193</span>
-<span id="194">194</span>
-<span id="195">195</span>
-<span id="196">196</span>
-<span id="197">197</span>
-<span id="198">198</span>
-<span id="199">199</span>
-<span id="200">200</span>
-<span id="201">201</span>
-<span id="202">202</span>
-<span id="203">203</span>
-<span id="204">204</span>
-<span id="205">205</span>
-<span id="206">206</span>
-<span id="207">207</span>
-<span id="208">208</span>
-<span id="209">209</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident">bitcoin::secp256k1::rand</span>::{<span class="ident">CryptoRng</span>, <span class="ident">RngCore</span>};
+</pre><pre class="rust"><code><span class="kw">pub</span> <span class="kw">use</span> <span class="ident">minimint_core::config</span>::<span class="kw-2">*</span>;
+
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::net::peers</span>::{<span class="ident">ConnectionConfig</span>, <span class="ident">NetworkConfig</span>};
+<span class="kw">use</span> <span class="ident">bitcoin::secp256k1::rand</span>::{<span class="ident">CryptoRng</span>, <span class="ident">RngCore</span>};
 <span class="kw">use</span> <span class="ident">hbbft::crypto::serde_impl::SerdeSecret</span>;
 <span class="kw">use</span> <span class="ident">minimint_api::config::GenerateConfig</span>;
 <span class="kw">use</span> <span class="ident">minimint_api::PeerId</span>;
-<span class="kw">use</span> <span class="ident">minimint_ln::config</span>::{<span class="ident">LightningModuleClientConfig</span>, <span class="ident">LightningModuleConfig</span>};
-<span class="kw">use</span> <span class="ident">minimint_mint::config</span>::{<span class="ident">MintClientConfig</span>, <span class="ident">MintConfig</span>};
-<span class="kw">use</span> <span class="ident">minimint_wallet::config</span>::{<span class="ident">WalletClientConfig</span>, <span class="ident">WalletConfig</span>};
-<span class="kw">use</span> <span class="ident">serde::de::DeserializeOwned</span>;
+<span class="kw">use</span> <span class="ident">minimint_core::modules::ln::config::LightningModuleConfig</span>;
+<span class="kw">use</span> <span class="ident">minimint_core::modules::mint::config::MintConfig</span>;
+<span class="kw">use</span> <span class="ident">minimint_core::modules::wallet::config::WalletConfig</span>;
+
 <span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
 <span class="kw">use</span> <span class="ident">std::collections::BTreeMap</span>;
-<span class="kw">use</span> <span class="ident">std::path::Path</span>;
-<span class="kw">use</span> <span class="ident">std::path::PathBuf</span>;
-<span class="kw">use</span> <span class="ident">structopt::StructOpt</span>;
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">StructOpt</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ServerOpts</span> {
-    <span class="kw">pub</span> <span class="ident">cfg_path</span>: <span class="ident">PathBuf</span>,
-}
+<span class="kw">use</span> <span class="ident">std::path::PathBuf</span>;
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ServerConfig</span> {
     <span class="kw">pub</span> <span class="ident">identity</span>: <span class="ident">PeerId</span>,
-    <span class="kw">pub</span> <span class="ident">hbbft_port</span>: <span class="ident">u16</span>,
-    <span class="kw">pub</span> <span class="ident">api_port</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">hbbft_bind_addr</span>: <span class="ident">String</span>,
+    <span class="kw">pub</span> <span class="ident">api_bind_addr</span>: <span class="ident">String</span>,
 
     <span class="kw">pub</span> <span class="ident">peers</span>: <span class="ident">BTreeMap</span><span class="op">&lt;</span><span class="ident">PeerId</span>, <span class="ident">Peer</span><span class="op">&gt;</span>,
     <span class="attribute">#[<span class="ident">serde</span>(<span class="ident">with</span> <span class="op">=</span> <span class="string">&quot;serde_binary_human_readable&quot;</span>)]</span>
@@ -259,8 +207,7 @@
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Peer</span> {
-    <span class="kw">pub</span> <span class="ident">hbbft_port</span>: <span class="ident">u16</span>,
-    <span class="kw">pub</span> <span class="ident">api_port</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">connection</span>: <span class="ident">ConnectionConfig</span>,
     <span class="attribute">#[<span class="ident">serde</span>(<span class="ident">with</span> <span class="op">=</span> <span class="string">&quot;serde_binary_human_readable&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="ident">hbbft_pk</span>: <span class="ident">hbbft::crypto::PublicKey</span>,
 }
@@ -270,26 +217,6 @@
     <span class="kw">pub</span> <span class="ident">hbbft_base_port</span>: <span class="ident">u16</span>,
     <span class="kw">pub</span> <span class="ident">api_base_port</span>: <span class="ident">u16</span>,
     <span class="kw">pub</span> <span class="ident">amount_tiers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">minimint_api::Amount</span><span class="op">&gt;</span>,
-}
-
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ClientConfig</span> {
-    <span class="kw">pub</span> <span class="ident">api_endpoints</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span> <span class="ident">mint</span>: <span class="ident">MintClientConfig</span>,
-    <span class="kw">pub</span> <span class="ident">wallet</span>: <span class="ident">WalletClientConfig</span>,
-    <span class="kw">pub</span> <span class="ident">ln</span>: <span class="ident">LightningModuleClientConfig</span>,
-    <span class="kw">pub</span> <span class="ident">fee_consensus</span>: <span class="ident">FeeConsensus</span>,
-}
-
-<span class="comment">// TODO: get rid of it here, modules should govern their oen fees</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">FeeConsensus</span> {
-    <span class="kw">pub</span> <span class="ident">fee_coin_spend_abs</span>: <span class="ident">minimint_api::Amount</span>,
-    <span class="kw">pub</span> <span class="ident">fee_peg_in_abs</span>: <span class="ident">minimint_api::Amount</span>,
-    <span class="kw">pub</span> <span class="ident">fee_coin_issuance_abs</span>: <span class="ident">minimint_api::Amount</span>,
-    <span class="kw">pub</span> <span class="ident">fee_peg_out_abs</span>: <span class="ident">minimint_api::Amount</span>,
-    <span class="kw">pub</span> <span class="ident">fee_contract_input</span>: <span class="ident">minimint_api::Amount</span>,
-    <span class="kw">pub</span> <span class="ident">fee_contract_output</span>: <span class="ident">minimint_api::Amount</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">GenerateConfig</span> <span class="kw">for</span> <span class="ident">ServerConfig</span> {
@@ -310,8 +237,9 @@
             .<span class="ident">map</span>(<span class="op">|</span>(<span class="kw-2">&amp;</span><span class="ident">id</span>, <span class="ident">netinf</span>)<span class="op">|</span> {
                 <span class="kw">let</span> <span class="ident">id_u16</span>: <span class="ident">u16</span> <span class="op">=</span> <span class="ident">id</span>.<span class="ident">into</span>();
                 <span class="kw">let</span> <span class="ident">peer</span> <span class="op">=</span> <span class="ident">Peer</span> {
-                    <span class="ident">hbbft_port</span>: <span class="ident">params</span>.<span class="ident">hbbft_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>,
-                    <span class="ident">api_port</span>: <span class="ident">params</span>.<span class="ident">api_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>,
+                    <span class="ident">connection</span>: <span class="ident">ConnectionConfig</span> {
+                        <span class="ident">addr</span>: <span class="macro">format!</span>(<span class="string">&quot;127.0.0.1:{}&quot;</span>, <span class="ident">params</span>.<span class="ident">hbbft_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>),
+                    },
                     <span class="ident">hbbft_pk</span>: <span class="kw-2">*</span><span class="ident">netinf</span>.<span class="ident">public_key</span>(<span class="kw-2">&amp;</span><span class="ident">id</span>).<span class="ident">unwrap</span>(),
                 };
 
@@ -341,8 +269,8 @@
                 <span class="kw">let</span> <span class="ident">id_u16</span>: <span class="ident">u16</span> <span class="op">=</span> <span class="ident">id</span>.<span class="ident">into</span>();
                 <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">ServerConfig</span> {
                     <span class="ident">identity</span>: <span class="ident">id</span>,
-                    <span class="ident">hbbft_port</span>: <span class="ident">params</span>.<span class="ident">hbbft_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>,
-                    <span class="ident">api_port</span>: <span class="ident">params</span>.<span class="ident">api_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>,
+                    <span class="ident">hbbft_bind_addr</span>: <span class="macro">format!</span>(<span class="string">&quot;127.0.0.1:{}&quot;</span>, <span class="ident">params</span>.<span class="ident">hbbft_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>),
+                    <span class="ident">api_bind_addr</span>: <span class="macro">format!</span>(<span class="string">&quot;127.0.0.1:{}&quot;</span>, <span class="ident">params</span>.<span class="ident">api_base_port</span> <span class="op">+</span> <span class="ident">id_u16</span>),
                     <span class="ident">peers</span>: <span class="ident">cfg_peers</span>.<span class="ident">clone</span>(),
                     <span class="ident">hbbft_sk</span>: <span class="ident">SerdeSecret</span>(<span class="ident">netinf</span>.<span class="ident">secret_key</span>().<span class="ident">clone</span>()),
                     <span class="ident">hbbft_sks</span>: <span class="ident">SerdeSecret</span>(<span class="ident">netinf</span>.<span class="ident">secret_key_share</span>().<span class="ident">unwrap</span>().<span class="ident">clone</span>()),
@@ -378,11 +306,16 @@
 }
 
 <span class="kw">impl</span> <span class="ident">ServerConfig</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_hbbft_port</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u16</span> {
-        <span class="self">self</span>.<span class="ident">hbbft_port</span>
-    }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_api_port</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u16</span> {
-        <span class="self">self</span>.<span class="ident">api_port</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">network_config</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">NetworkConfig</span> {
+        <span class="ident">NetworkConfig</span> {
+            <span class="ident">identity</span>: <span class="self">self</span>.<span class="ident">identity</span>,
+            <span class="ident">bind_addr</span>: <span class="self">self</span>.<span class="ident">hbbft_bind_addr</span>.<span class="ident">clone</span>(),
+            <span class="ident">peers</span>: <span class="self">self</span>
+                .<span class="ident">peers</span>
+                .<span class="ident">iter</span>()
+                .<span class="ident">map</span>(<span class="op">|</span>(<span class="kw-2">&amp;</span><span class="ident">id</span>, <span class="ident">peer</span>)<span class="op">|</span> (<span class="ident">id</span>, <span class="ident">peer</span>.<span class="ident">connection</span>.<span class="ident">clone</span>()))
+                .<span class="ident">collect</span>(),
+        }
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_incoming_count</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u16</span> {
@@ -393,36 +326,6 @@
         <span class="ident">hbbft::util::max_faulty</span>(<span class="self">self</span>.<span class="ident">peers</span>.<span class="ident">len</span>())
     }
 }
-
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">load_from_file</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">DeserializeOwned</span><span class="op">&gt;</span>(<span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">Path</span>) -&gt; <span class="ident">T</span> {
-    <span class="kw">let</span> <span class="ident">file</span> <span class="op">=</span> <span class="ident">std::fs::File::open</span>(<span class="ident">path</span>).<span class="ident">expect</span>(<span class="string">&quot;Can&#39;t read cfg file.&quot;</span>);
-    <span class="ident">serde_json::from_reader</span>(<span class="ident">file</span>).<span class="ident">expect</span>(<span class="string">&quot;Could not parse cfg file.&quot;</span>)
-}
-
-<span class="kw">mod</span> <span class="ident">serde_binary_human_readable</span> {
-    <span class="kw">use</span> <span class="ident">serde::de::DeserializeOwned</span>;
-    <span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Deserializer</span>, <span class="ident">Serialize</span>, <span class="ident">Serializer</span>};
-
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">serialize</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Serialize</span>, <span class="ident">S</span>: <span class="ident">Serializer</span><span class="op">&gt;</span>(<span class="ident">x</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">s</span>: <span class="ident">S</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">S::Ok</span>, <span class="ident">S::Error</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">s</span>.<span class="ident">is_human_readable</span>() {
-            <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span>
-                <span class="ident">bincode::serialize</span>(<span class="ident">x</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">serde::ser::Error::custom</span>(<span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">e</span>)))<span class="question-mark">?</span>;
-            <span class="ident">s</span>.<span class="ident">serialize_str</span>(<span class="kw-2">&amp;</span><span class="ident">hex::encode</span>(<span class="kw-2">&amp;</span><span class="ident">bytes</span>))
-        } <span class="kw">else</span> {
-            <span class="ident">Serialize::serialize</span>(<span class="ident">x</span>, <span class="ident">s</span>)
-        }
-    }
-
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">deserialize</span><span class="op">&lt;</span><span class="lifetime">&#39;d</span>, <span class="ident">T</span>: <span class="ident">DeserializeOwned</span>, <span class="ident">D</span>: <span class="ident">Deserializer</span><span class="op">&lt;</span><span class="lifetime">&#39;d</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">d</span>: <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">D::Error</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">d</span>.<span class="ident">is_human_readable</span>() {
-            <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="ident">hex::decode</span>::<span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>(<span class="ident">Deserialize::deserialize</span>(<span class="ident">d</span>)<span class="question-mark">?</span>)
-                .<span class="ident">map_err</span>(<span class="ident">serde::de::Error::custom</span>)<span class="question-mark">?</span>;
-            <span class="ident">bincode::deserialize</span>(<span class="kw-2">&amp;</span><span class="ident">bytes</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">serde::de::Error::custom</span>(<span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">e</span>)))
-        } <span class="kw">else</span> {
-            <span class="ident">Deserialize::deserialize</span>(<span class="ident">d</span>)
-        }
-    }
-}
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="minimint" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (cd282d7f7 2022-05-18)" ></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="minimint" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (fdca237d5 2022-06-24)" ></div>
 </body></html>

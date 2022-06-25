@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["gateway",""],["user",""]]});
+window.SIDEBAR_ITEMS = {"mod":[["gateway",""],["transaction",""],["user",""]]};
