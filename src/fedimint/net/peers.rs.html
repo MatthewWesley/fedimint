@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `fedimint/src/net/peers.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>peers.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../fedimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../fedimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../fedimint/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `fedimint/src/net/peers.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>peers.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../fedimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../fedimint/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../fedimint/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -658,6 +658,9 @@
 <span id="658">658</span>
 <span id="659">659</span>
 <span id="660">660</span>
+<span id="661">661</span>
+<span id="662">662</span>
+<span id="663">663</span>
 </pre><pre class="rust"><code><span class="doccomment">//! Implements a connection manager for communication with other federation members
 //!
 //! The main interface is [`PeerConnections`] and its main implementation is
@@ -704,8 +707,8 @@
 ///
 /// In case of longer term interruptions the message cache has to be dropped to avoid DoS attacks.
 /// The thus disconnected peer will need to rejoin the consensus at a later time.  
-</span><span class="attribute">#[async_trait]</span>
-<span class="kw">pub trait </span>PeerConnections&lt;T&gt;
+</span><span class="attribute">#[async_trait]
+</span><span class="kw">pub trait </span>PeerConnections&lt;T&gt;
 <span class="kw">where
     </span>T: Serialize + DeserializeOwned + Unpin + Send,
 {
@@ -748,8 +751,8 @@
 }
 
 <span class="doccomment">/// Specifies the network configuration for federation-internal communication
-</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]</span>
-<span class="kw">pub struct </span>NetworkConfig {
+</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]
+</span><span class="kw">pub struct </span>NetworkConfig {
     <span class="doccomment">/// Our federation member&#39;s identity
     </span><span class="kw">pub </span>identity: PeerId,
     <span class="doccomment">/// Our listen address for incoming connections from other federation members
@@ -759,8 +762,8 @@
 }
 
 <span class="doccomment">/// Information needed to connect to one other federation member
-</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]</span>
-<span class="kw">pub struct </span>ConnectionConfig {
+</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]
+</span><span class="kw">pub struct </span>ConnectionConfig {
     <span class="doccomment">/// The peer&#39;s hbbft network address and port (e.g. `10.42.0.10:4000`)
     </span><span class="kw">pub </span>hbbft_addr: String,
     <span class="doccomment">/// The peer&#39;s websocket network address and port (e.g. `ws://10.42.0.10:5000`)
@@ -769,8 +772,8 @@
 
 <span class="doccomment">/// Internal message type for [`ReconnectPeerConnections`], just public because it appears in the
 /// public interface.
-</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]</span>
-<span class="kw">pub struct </span>PeerMessage&lt;M&gt; {
+</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]
+</span><span class="kw">pub struct </span>PeerMessage&lt;M&gt; {
     msg: UniqueMessage&lt;M&gt;,
     ack: <span class="prelude-ty">Option</span>&lt;MessageId&gt;,
 }
@@ -812,8 +815,8 @@
     <span class="doccomment">/// Creates a new `ReconnectPeerConnections` connection manager from a network config and a
     /// [`Connector`](crate::net::connect::Connector). See [`ReconnectPeerConnections`] for
     /// requirements on the `Connector`.
-    </span><span class="attribute">#[instrument(skip_all)]</span>
-    <span class="kw">pub async fn </span>new(cfg: NetworkConfig, connect: PeerConnector&lt;T&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="attribute">#[instrument(skip_all)]
+    </span><span class="kw">pub async fn </span>new(cfg: NetworkConfig, connect: PeerConnector&lt;T&gt;) -&gt; <span class="self">Self </span>{
         <span class="macro">info!</span>(<span class="string">&quot;Starting mint {}&quot;</span>, cfg.identity);
 
         <span class="kw">let </span>shared_connector: SharedAnyConnector&lt;PeerMessage&lt;T&gt;&gt; = connect.into();
@@ -888,8 +891,8 @@
     }
 }
 
-<span class="attribute">#[async_trait]</span>
-<span class="kw">impl</span>&lt;T&gt; PeerConnections&lt;T&gt; <span class="kw">for </span>ReconnectPeerConnections&lt;T&gt;
+<span class="attribute">#[async_trait]
+</span><span class="kw">impl</span>&lt;T&gt; PeerConnections&lt;T&gt; <span class="kw">for </span>ReconnectPeerConnections&lt;T&gt;
 <span class="kw">where
     </span>T: std::fmt::Debug + Serialize + DeserializeOwned + Clone + Unpin + Send + Sync + <span class="lifetime">&#39;static</span>,
 {
@@ -972,7 +975,7 @@
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         <span class="kw-2">mut </span>connected: ConnectedPeerConnectionState&lt;M&gt;,
     ) -&gt; PeerConnectionState&lt;M&gt; {
-        <span class="macro">tokio::select!</span> {
+        <span class="macro">tokio::select! </span>{
             maybe_msg = <span class="self">self</span>.outgoing.recv() =&gt; {
                 <span class="kw">let </span>msg = maybe_msg.expect(<span class="string">&quot;Peer connection was dropped&quot;</span>);
                 <span class="self">self</span>.send_message_connected(connected, msg).<span class="kw">await
@@ -1067,7 +1070,10 @@
     ) -&gt; PeerConnectionState&lt;M&gt; {
         <span class="kw">match </span><span class="self">self</span>.receive_message_inner(msg_res).<span class="kw">await </span>{
             <span class="prelude-val">Ok</span>(()) =&gt; PeerConnectionState::Connected(connected),
-            <span class="prelude-val">Err</span>(e) =&gt; <span class="self">self</span>.disconnect_err(e, <span class="number">0</span>),
+            <span class="prelude-val">Err</span>(e) =&gt; {
+                <span class="self">self</span>.last_received = <span class="prelude-val">None</span>;
+                <span class="self">self</span>.disconnect_err(e, <span class="number">0</span>)
+            }
         }
     }
 
@@ -1081,10 +1087,10 @@
         <span class="kw">let </span>expected = <span class="self">self
             </span>.last_received
             .map(|last_id| last_id.increment())
-            .unwrap_or(MessageId(<span class="number">1</span>));
+            .unwrap_or(msg.id);
 
         <span class="kw">if </span>msg.id &lt; expected {
-            <span class="macro">debug!</span>(<span class="question-mark">?</span>expected, received = <span class="question-mark">?</span>msg.id, <span class="string">&quot;Received old message&quot;</span>);
+            <span class="macro">info!</span>(<span class="question-mark">?</span>expected, received = <span class="question-mark">?</span>msg.id, <span class="string">&quot;Received old message&quot;</span>);
             <span class="kw">return </span><span class="prelude-val">Ok</span>(());
         }
 
@@ -1111,7 +1117,7 @@
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         disconnected: DisconnectedPeerConnectionState,
     ) -&gt; PeerConnectionState&lt;M&gt; {
-        <span class="macro">tokio::select!</span> {
+        <span class="macro">tokio::select! </span>{
             maybe_msg = <span class="self">self</span>.outgoing.recv() =&gt; {
                 <span class="kw">let </span>msg = maybe_msg.expect(<span class="string">&quot;Peer connection was dropped&quot;</span>);
                 <span class="self">self</span>.send_message(disconnected, msg).<span class="kw">await
@@ -1211,8 +1217,8 @@
         <span class="self">self</span>.incoming.recv().<span class="kw">await</span>.expect(<span class="string">&quot;io task died&quot;</span>)
     }
 
-    <span class="attribute">#[instrument(skip_all, fields(peer))]</span>
-    <span class="kw">async fn </span>run_io_thread(
+    <span class="attribute">#[instrument(skip_all, fields(peer))]
+    </span><span class="kw">async fn </span>run_io_thread(
         incoming: Sender&lt;M&gt;,
         outgoing: Receiver&lt;M&gt;,
         peer: PeerId,
@@ -1241,8 +1247,8 @@
     }
 }
 
-<span class="attribute">#[cfg(test)]</span>
-<span class="kw">mod </span>tests {
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
     <span class="kw">use </span><span class="kw">crate</span>::net::connect::mock::MockNetwork;
     <span class="kw">use </span><span class="kw">crate</span>::net::connect::Connector;
     <span class="kw">use </span><span class="kw">crate</span>::net::peers::{
@@ -1263,8 +1269,8 @@
         tokio::time::timeout(Duration::from_secs(<span class="number">100</span>), f).<span class="kw">await</span>.ok()
     }
 
-    <span class="attribute">#[tokio::test]</span>
-    <span class="kw">async fn </span>test_connect() {
+    <span class="attribute">#[tokio::test]
+    </span><span class="kw">async fn </span>test_connect() {
         tracing_subscriber::fmt()
             .with_env_filter(
                 EnvFilter::try_from_default_env()
@@ -1319,4 +1325,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="fedimint" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (878aef79d 2022-08-20)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="fedimint" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (9243168fa 2022-08-31)" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `modules/fedimint-wallet/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../fedimint_wallet/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../fedimint_wallet/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../fedimint_wallet/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `modules/fedimint-wallet/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../fedimint_wallet/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../fedimint_wallet/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../fedimint_wallet/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1234,6 +1234,12 @@
 <span id="1234">1234</span>
 <span id="1235">1235</span>
 <span id="1236">1236</span>
+<span id="1237">1237</span>
+<span id="1238">1238</span>
+<span id="1239">1239</span>
+<span id="1240">1240</span>
+<span id="1241">1241</span>
+<span id="1242">1242</span>
 </pre><pre class="rust"><code><span class="kw">use </span>std::collections::{BTreeMap, HashMap, HashSet};
 <span class="kw">use </span>std::convert::TryInto;
 
@@ -1243,9 +1249,9 @@
 <span class="kw">use </span><span class="kw">crate</span>::bitcoind::BitcoindRpc;
 <span class="kw">use </span><span class="kw">crate</span>::config::WalletConfig;
 <span class="kw">use </span><span class="kw">crate</span>::db::{
-    BlockHashKey, PegOutTxSignatureCI, PegOutTxSignatureCIPrefix, PendingTransactionKey,
-    PendingTransactionPrefixKey, RoundConsensusKey, UTXOKey, UTXOPrefixKey, UnsignedTransactionKey,
-    UnsignedTransactionPrefixKey,
+    BlockHashKey, PegOutBitcoinTransaction, PegOutTxSignatureCI, PegOutTxSignatureCIPrefix,
+    PendingTransactionKey, PendingTransactionPrefixKey, RoundConsensusKey, UTXOKey, UTXOPrefixKey,
+    UnsignedTransactionKey, UnsignedTransactionPrefixKey,
 };
 <span class="kw">use </span><span class="kw">crate</span>::keys::CompressedPublicKey;
 <span class="kw">use </span><span class="kw">crate</span>::tweakable::Tweakable;
@@ -1288,8 +1294,8 @@
 <span class="kw">pub mod </span>tweakable;
 <span class="kw">pub mod </span>txoproof;
 
-<span class="attribute">#[cfg(feature = <span class="string">&quot;native&quot;</span>)]</span>
-<span class="kw">pub mod </span>bitcoincore_rpc;
+<span class="attribute">#[cfg(feature = <span class="string">&quot;native&quot;</span>)]
+</span><span class="kw">pub mod </span>bitcoincore_rpc;
 
 <span class="kw">pub const </span>CONFIRMATION_TARGET: u16 = <span class="number">10</span>;
 
@@ -1299,27 +1305,27 @@
 
 <span class="attribute">#[derive(
     Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, UnzipConsensus, Encodable, Decodable,
-)]</span>
-<span class="kw">pub enum </span>WalletConsensusItem {
+)]
+</span><span class="kw">pub enum </span>WalletConsensusItem {
     RoundConsensus(RoundConsensusItem),
     PegOutSignature(PegOutSignatureItem),
 }
 
-<span class="attribute">#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>RoundConsensusItem {
+<span class="attribute">#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>RoundConsensusItem {
     <span class="kw">pub </span>block_height: u32, <span class="comment">// FIXME: use block hash instead, but needs more complicated verification logic
     </span><span class="kw">pub </span>fee_rate: Feerate,
     <span class="kw">pub </span>randomness: [u8; <span class="number">32</span>],
 }
 
-<span class="attribute">#[derive(Clone, Debug, Serialize, Deserialize, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>PegOutSignatureItem {
+<span class="attribute">#[derive(Clone, Debug, Serialize, Deserialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>PegOutSignatureItem {
     <span class="kw">pub </span>txid: Txid,
     <span class="kw">pub </span>signature: Vec&lt;secp256k1::ecdsa::Signature&gt;,
 }
 
-<span class="attribute">#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>RoundConsensus {
+<span class="attribute">#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>RoundConsensus {
     <span class="kw">pub </span>block_height: u32,
     <span class="kw">pub </span>fee_rate: Feerate,
     <span class="kw">pub </span>randomness_beacon: [u8; <span class="number">32</span>],
@@ -1332,24 +1338,24 @@
     db: Arc&lt;<span class="kw">dyn </span>Database&gt;,
 }
 
-<span class="attribute">#[derive(Clone, Debug, Serialize, Deserialize, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>SpendableUTXO {
+<span class="attribute">#[derive(Clone, Debug, Serialize, Deserialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>SpendableUTXO {
     <span class="kw">pub </span>tweak: [u8; <span class="number">32</span>],
-    <span class="attribute">#[serde(with = <span class="string">&quot;bitcoin::util::amount::serde::as_sat&quot;</span>)]</span>
-    <span class="kw">pub </span>amount: bitcoin::Amount,
+    <span class="attribute">#[serde(with = <span class="string">&quot;bitcoin::util::amount::serde::as_sat&quot;</span>)]
+    </span><span class="kw">pub </span>amount: bitcoin::Amount,
 }
 
 <span class="doccomment">/// A peg-out tx that is ready to be broadcast with a tweak for the change UTXO
-</span><span class="attribute">#[derive(Clone, Debug, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>PendingTransaction {
+</span><span class="attribute">#[derive(Clone, Debug, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>PendingTransaction {
     <span class="kw">pub </span>tx: Transaction,
     <span class="kw">pub </span>tweak: [u8; <span class="number">32</span>],
     <span class="kw">pub </span>change: bitcoin::Amount,
 }
 
 <span class="doccomment">/// A PSBT that is awaiting enough signatures from the federation to becoming a `PendingTransaction`
-</span><span class="attribute">#[derive(Clone, Debug, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>UnsignedTransaction {
+</span><span class="attribute">#[derive(Clone, Debug, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>UnsignedTransaction {
     <span class="kw">pub </span>psbt: PartiallySignedTransaction,
     <span class="kw">pub </span>signatures: Vec&lt;(PeerId, PegOutSignatureItem)&gt;,
     <span class="kw">pub </span>change: bitcoin::Amount,
@@ -1375,13 +1381,13 @@
     Deserialize,
     Encodable,
     Decodable,
-)]</span>
-<span class="kw">pub struct </span>Feerate {
+)]
+</span><span class="kw">pub struct </span>Feerate {
     <span class="kw">pub </span>sats_per_kvb: u64,
 }
 
-<span class="attribute">#[derive(Debug, Clone, Eq, PartialEq, Hash, Deserialize, Serialize, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>PegOutFees {
+<span class="attribute">#[derive(Debug, Clone, Eq, PartialEq, Hash, Deserialize, Serialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>PegOutFees {
     <span class="kw">pub </span>fee_rate: Feerate,
     <span class="kw">pub </span>total_weight: u64,
 }
@@ -1392,21 +1398,25 @@
     }
 }
 
-<span class="attribute">#[derive(Debug, Clone, Eq, PartialEq, Hash, Deserialize, Serialize, Encodable, Decodable)]</span>
-<span class="kw">pub struct </span>PegOut {
+<span class="attribute">#[derive(Debug, Clone, Eq, PartialEq, Hash, Deserialize, Serialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>PegOut {
     <span class="kw">pub </span>recipient: bitcoin::Address,
-    <span class="attribute">#[serde(with = <span class="string">&quot;bitcoin::util::amount::serde::as_sat&quot;</span>)]</span>
-    <span class="kw">pub </span>amount: bitcoin::Amount,
+    <span class="attribute">#[serde(with = <span class="string">&quot;bitcoin::util::amount::serde::as_sat&quot;</span>)]
+    </span><span class="kw">pub </span>amount: bitcoin::Amount,
     <span class="kw">pub </span>fees: PegOutFees,
 }
 
-<span class="attribute">#[async_trait(<span class="question-mark">?</span>Send)]</span>
-<span class="kw">impl </span>FederationModule <span class="kw">for </span>Wallet {
+<span class="doccomment">/// Contains the Bitcoin transaction id of the transaction created by the withdraw request
+</span><span class="attribute">#[derive(Debug, Clone, Eq, PartialEq, Hash, Deserialize, Serialize, Encodable, Decodable)]
+</span><span class="kw">pub struct </span>PegOutOutcome(<span class="kw">pub </span>bitcoin::Txid);
+
+<span class="attribute">#[async_trait(<span class="question-mark">?</span>Send)]
+</span><span class="kw">impl </span>FederationModule <span class="kw">for </span>Wallet {
     <span class="kw">type </span>Error = WalletError;
     <span class="kw">type </span>TxInput = Box&lt;PegInProof&gt;;
     <span class="kw">type </span>TxOutput = PegOut;
     <span class="comment">// TODO: implement outcome
-    </span><span class="kw">type </span>TxOutputOutcome = ();
+    </span><span class="kw">type </span>TxOutputOutcome = PegOutOutcome;
     <span class="kw">type </span>ConsensusItem = WalletConsensusItem;
     <span class="kw">type </span>VerificationCache = ();
 
@@ -1602,7 +1612,7 @@
         <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>,
         <span class="kw-2">mut </span>batch: BatchTx&lt;<span class="lifetime">&#39;a</span>&gt;,
         output: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>::TxOutput,
-        _out_point: fedimint_api::OutPoint,
+        out_point: fedimint_api::OutPoint,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;fedimint_api::Amount, <span class="self">Self</span>::Error&gt; {
         <span class="kw">let </span>amount = <span class="self">self</span>.validate_output(output)<span class="question-mark">?</span>;
         <span class="macro">debug!</span>(
@@ -1657,6 +1667,7 @@
 
         batch.append_insert_new(UnsignedTransactionKey(txid), tx);
         batch.append_insert_new(PegOutTxSignatureCI(txid), sigs);
+        batch.append_insert_new(PegOutBitcoinTransaction(out_point), PegOutOutcome(txid));
         batch.commit();
         <span class="prelude-val">Ok</span>(amount)
     }
@@ -1720,9 +1731,10 @@
         drop_peers
     }
 
-    <span class="kw">fn </span>output_status(<span class="kw-2">&amp;</span><span class="self">self</span>, _out_point: OutPoint) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::TxOutputOutcome&gt; {
-        <span class="comment">// TODO: return BTC tx id once included in peg-out tx
-        </span><span class="prelude-val">Some</span>(())
+    <span class="kw">fn </span>output_status(<span class="kw-2">&amp;</span><span class="self">self</span>, out_point: OutPoint) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::TxOutputOutcome&gt; {
+        <span class="self">self</span>.db
+            .get_value(<span class="kw-2">&amp;</span>PegOutBitcoinTransaction(out_point))
+            .expect(<span class="string">&quot;DB error&quot;</span>)
     }
 
     <span class="kw">fn </span>audit(<span class="kw-2">&amp;</span><span class="self">self</span>, audit: <span class="kw-2">&amp;mut </span>Audit) {
@@ -1743,13 +1755,13 @@
 
     <span class="kw">fn </span>api_endpoints(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>[ApiEndpoint&lt;<span class="self">Self</span>&gt;] {
         <span class="kw">const </span>ENDPOINTS: <span class="kw-2">&amp;</span>[ApiEndpoint&lt;Wallet&gt;] = <span class="kw-2">&amp;</span>[
-            <span class="macro">api_endpoint!</span> {
+            <span class="macro">api_endpoint! </span>{
                 <span class="string">&quot;/block_height&quot;</span>,
                 <span class="kw">async </span>|module: <span class="kw-2">&amp;</span>Wallet, _params: ()| -&gt; u32 {
                     <span class="prelude-val">Ok</span>(module.consensus_height().unwrap_or(<span class="number">0</span>))
                 }
             },
-            <span class="macro">api_endpoint!</span> {
+            <span class="macro">api_endpoint! </span>{
                 <span class="string">&quot;/peg_out_fees&quot;</span>,
                 <span class="kw">async </span>|module: <span class="kw-2">&amp;</span>Wallet, params: (Address, u64)| -&gt; <span class="prelude-ty">Option</span>&lt;PegOutFees&gt; {
                     <span class="kw">let </span>(address, sats) = params;
@@ -2371,8 +2383,8 @@
     }
 }
 
-<span class="attribute">#[instrument(level = <span class="string">&quot;debug&quot;</span>, skip_all)]</span>
-<span class="kw">pub async fn </span>run_broadcast_pending_tx(db: Arc&lt;<span class="kw">dyn </span>Database&gt;, rpc: Box&lt;<span class="kw">dyn </span>BitcoindRpc&gt;) {
+<span class="attribute">#[instrument(level = <span class="string">&quot;debug&quot;</span>, skip_all)]
+</span><span class="kw">pub async fn </span>run_broadcast_pending_tx(db: Arc&lt;<span class="kw">dyn </span>Database&gt;, rpc: Box&lt;<span class="kw">dyn </span>BitcoindRpc&gt;) {
     <span class="kw">loop </span>{
         broadcast_pending_tx(<span class="kw-2">&amp;</span>db, rpc.as_ref()).<span class="kw">await</span>;
         fedimint_api::task::sleep(Duration::from_secs(<span class="number">10</span>)).<span class="kw">await</span>;
@@ -2420,44 +2432,44 @@
 
 <span class="kw">impl </span>Eq <span class="kw">for </span>PegOutSignatureItem {}
 
-<span class="attribute">#[derive(Debug, Error)]</span>
-<span class="kw">pub enum </span>WalletError {
-    <span class="attribute">#[error(<span class="string">&quot;Connected bitcoind is on wrong network, expected {0}, got {1}&quot;</span>)]</span>
-    WrongNetwork(Network, Network),
-    <span class="attribute">#[error(<span class="string">&quot;Error querying bitcoind: {0}&quot;</span>)]</span>
-    RpcError(<span class="attribute">#[from]</span> anyhow::Error),
-    <span class="attribute">#[error(<span class="string">&quot;Unknown bitcoin network: {0}&quot;</span>)]</span>
-    UnknownNetwork(String),
-    <span class="attribute">#[error(<span class="string">&quot;Unknown block hash in peg-in proof: {0}&quot;</span>)]</span>
-    UnknownPegInProofBlock(BlockHash),
-    <span class="attribute">#[error(<span class="string">&quot;Invalid peg-in proof: {0}&quot;</span>)]</span>
-    PegInProofError(<span class="attribute">#[from]</span> PegInProofError),
-    <span class="attribute">#[error(<span class="string">&quot;The peg-in was already claimed&quot;</span>)]</span>
-    PegInAlreadyClaimed,
-    <span class="attribute">#[error(<span class="string">&quot;Peg-out fee rate {0:?} is set below consensus {1:?}&quot;</span>)]</span>
-    PegOutFeeRate(Feerate, Feerate),
-    <span class="attribute">#[error(<span class="string">&quot;Not enough SpendableUTXO&quot;</span>)]</span>
-    NotEnoughSpendableUTXO,
+<span class="attribute">#[derive(Debug, Error)]
+</span><span class="kw">pub enum </span>WalletError {
+    <span class="attribute">#[error(<span class="string">&quot;Connected bitcoind is on wrong network, expected {0}, got {1}&quot;</span>)]
+    </span>WrongNetwork(Network, Network),
+    <span class="attribute">#[error(<span class="string">&quot;Error querying bitcoind: {0}&quot;</span>)]
+    </span>RpcError(<span class="attribute">#[from] </span>anyhow::Error),
+    <span class="attribute">#[error(<span class="string">&quot;Unknown bitcoin network: {0}&quot;</span>)]
+    </span>UnknownNetwork(String),
+    <span class="attribute">#[error(<span class="string">&quot;Unknown block hash in peg-in proof: {0}&quot;</span>)]
+    </span>UnknownPegInProofBlock(BlockHash),
+    <span class="attribute">#[error(<span class="string">&quot;Invalid peg-in proof: {0}&quot;</span>)]
+    </span>PegInProofError(<span class="attribute">#[from] </span>PegInProofError),
+    <span class="attribute">#[error(<span class="string">&quot;The peg-in was already claimed&quot;</span>)]
+    </span>PegInAlreadyClaimed,
+    <span class="attribute">#[error(<span class="string">&quot;Peg-out fee rate {0:?} is set below consensus {1:?}&quot;</span>)]
+    </span>PegOutFeeRate(Feerate, Feerate),
+    <span class="attribute">#[error(<span class="string">&quot;Not enough SpendableUTXO&quot;</span>)]
+    </span>NotEnoughSpendableUTXO,
 }
 
-<span class="attribute">#[derive(Debug, Error)]</span>
-<span class="kw">pub enum </span>ProcessPegOutSigError {
-    <span class="attribute">#[error(<span class="string">&quot;No unsigned transaction with id {0} exists&quot;</span>)]</span>
-    UnknownTransaction(Txid),
-    <span class="attribute">#[error(<span class="string">&quot;Expected {0} signatures, got {1}&quot;</span>)]</span>
-    WrongSignatureCount(usize, usize),
-    <span class="attribute">#[error(<span class="string">&quot;Bad Sighash&quot;</span>)]</span>
-    SighashError,
-    <span class="attribute">#[error(<span class="string">&quot;Malformed signature: {0}&quot;</span>)]</span>
-    MalformedSignature(secp256k1::Error),
-    <span class="attribute">#[error(<span class="string">&quot;Invalid signature&quot;</span>)]</span>
-    InvalidSignature,
-    <span class="attribute">#[error(<span class="string">&quot;Duplicate signature&quot;</span>)]</span>
-    DuplicateSignature,
-    <span class="attribute">#[error(<span class="string">&quot;Missing change tweak&quot;</span>)]</span>
-    MissingOrMalformedChangeTweak,
-    <span class="attribute">#[error(<span class="string">&quot;Error finalizing PSBT {0:?}&quot;</span>)]</span>
-    ErrorFinalizingPsbt(Vec&lt;miniscript::psbt::Error&gt;),
+<span class="attribute">#[derive(Debug, Error)]
+</span><span class="kw">pub enum </span>ProcessPegOutSigError {
+    <span class="attribute">#[error(<span class="string">&quot;No unsigned transaction with id {0} exists&quot;</span>)]
+    </span>UnknownTransaction(Txid),
+    <span class="attribute">#[error(<span class="string">&quot;Expected {0} signatures, got {1}&quot;</span>)]
+    </span>WrongSignatureCount(usize, usize),
+    <span class="attribute">#[error(<span class="string">&quot;Bad Sighash&quot;</span>)]
+    </span>SighashError,
+    <span class="attribute">#[error(<span class="string">&quot;Malformed signature: {0}&quot;</span>)]
+    </span>MalformedSignature(secp256k1::Error),
+    <span class="attribute">#[error(<span class="string">&quot;Invalid signature&quot;</span>)]
+    </span>InvalidSignature,
+    <span class="attribute">#[error(<span class="string">&quot;Duplicate signature&quot;</span>)]
+    </span>DuplicateSignature,
+    <span class="attribute">#[error(<span class="string">&quot;Missing change tweak&quot;</span>)]
+    </span>MissingOrMalformedChangeTweak,
+    <span class="attribute">#[error(<span class="string">&quot;Error finalizing PSBT {0:?}&quot;</span>)]
+    </span>ErrorFinalizingPsbt(Vec&lt;miniscript::psbt::Error&gt;),
 }
 
 <span class="comment">// FIXME: make FakeFed not require Eq
@@ -2471,4 +2483,4 @@
 <span class="doccomment">/// **WARNING**: this is only intended to be used for testing
 </span><span class="kw">impl </span>Eq <span class="kw">for </span>WalletError {}
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="fedimint_wallet" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (878aef79d 2022-08-20)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="fedimint_wallet" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (9243168fa 2022-08-31)" ></div></body></html>
